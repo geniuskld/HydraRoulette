@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Md5Roulette", "Md5Roulette\Md5Roulette.csproj", "{93560CF5-89CE-4EDD-B2F1-54384A58FCD1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Md5Roulette.Logic", "Md5Roulette.Logic\Md5Roulette.Logic.csproj", "{E0EEA2E5-FD49-4E44-924B-E91B1E612EB1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Md5Roulette.Tests", "Md5Roulette.Tests\Md5Roulette.Tests.csproj", "{080FA01D-051E-469A-8553-26943DC4BC02}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{93560CF5-89CE-4EDD-B2F1-54384A58FCD1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{93560CF5-89CE-4EDD-B2F1-54384A58FCD1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{93560CF5-89CE-4EDD-B2F1-54384A58FCD1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{93560CF5-89CE-4EDD-B2F1-54384A58FCD1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E0EEA2E5-FD49-4E44-924B-E91B1E612EB1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E0EEA2E5-FD49-4E44-924B-E91B1E612EB1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E0EEA2E5-FD49-4E44-924B-E91B1E612EB1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E0EEA2E5-FD49-4E44-924B-E91B1E612EB1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{080FA01D-051E-469A-8553-26943DC4BC02}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{080FA01D-051E-469A-8553-26943DC4BC02}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{080FA01D-051E-469A-8553-26943DC4BC02}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{080FA01D-051E-469A-8553-26943DC4BC02}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
