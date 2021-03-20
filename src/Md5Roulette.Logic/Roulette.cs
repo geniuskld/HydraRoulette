@@ -1,72 +1,62 @@
 ﻿using System;
-using System.Security.Cryptography.X509Certificates;
+using System.Security.Cryptography;
+using System.Text;
+using Md5Roulette.Logic.NumberGenerators;
+using RandomNumberGenerator = Md5Roulette.Logic.NumberGenerators.RandomNumberGenerator;
 
 namespace Md5Roulette.Logic
 {
     public class Roulette
     {
-        private readonly ISequenceGenerator _sequenceGenerator;
+        private readonly INumberGenerator _numberGenerator = new RandomNumberGenerator();
+        private readonly HashAlgorithm _hashAlgorithm = MD5.Create();
 
-        /// <summary>
-        /// For really random generation
-        /// </summary>
-        /// <param name="minNumber"></param>
-        /// <param name="numbersCount"></param>
-        /// <exception cref="ArgumentOutOfRangeException"></exception>
-        public Roulette(int minNumber, int numbersCount)
-        {
-            MinNumber = minNumber;
-            NumbersCount = numbersCount;
-            _sequenceGenerator = new RandomSequenceGenerator();
-        }
-
-        /// <summary>
-        /// Determined
-        /// </summary>
-        /// <param name="rouletteNumber"></param>
-        /// <param name="minNumber"></param>
-        /// <param name="numbersCount"></param>
-        /// <exception cref="ArgumentOutOfRangeException"></exception>
-        public Roulette(ulong rouletteNumber, int minNumber, int numbersCount)
-        {
-            if (rouletteNumber <= 0) throw new ArgumentOutOfRangeException(nameof(rouletteNumber));
-            RouletteNumber = rouletteNumber;
-            MinNumber = minNumber;
-            NumbersCount = numbersCount;
-            _sequenceGenerator = new DeterminedSequenceGenerator(rouletteNumber);
-        }
-
-        public Roulette(ISequenceGenerator sequenceGenerator, int minNumber, int numbersCount)
+        public Roulette(ulong rouletteNumber, int minNumber, int numbersCount, INumberGenerator numberGenerator =
+            default, HashAlgorithm hashAlgorithm = default)
         {
             if (minNumber < 0) throw new ArgumentOutOfRangeException(nameof(minNumber));
             if (numbersCount <= 0) throw new ArgumentOutOfRangeException(nameof(numbersCount));
+         
+            RouletteNumber = rouletteNumber;
             MinNumber = minNumber;
             NumbersCount = numbersCount;
-            _sequenceGenerator = sequenceGenerator ?? throw new ArgumentNullException(nameof(sequenceGenerator));
+
+            if (numberGenerator != default)
+                _numberGenerator = numberGenerator;
+            if (hashAlgorithm != default)
+                _hashAlgorithm = hashAlgorithm;
         }
 
         public ulong RouletteNumber { get; }
         public int MinNumber { get; }
         public int NumbersCount { get; }
         private int MaxNumber => MinNumber + NumbersCount;
-        private string _sequence;
+        public float? Number { get; private set; }
 
+
+        /// <summary>
+        /// Returns {rouletteNumber.GeneratedFloatNumber}
+        /// </summary>
+        /// <returns></returns>
         public string GenerateSequence()
         {
-            if (string.IsNullOrEmpty(_sequence))
-                _sequence = _sequenceGenerator.GetSequence(MinNumber, MaxNumber);
-            
-            return _sequence;
+            Number ??= _numberGenerator.GetNumber(MinNumber, MaxNumber);
+            return $"{RouletteNumber}.{Number}";
         }
 
         /// <summary>
         /// Md5(rouletteNumber+Sequence)
         /// </summary>
         /// <returns></returns>
-        public string GenerateMd5RouletteSequence()
+        public string GenerateRouletteHash()
         {
-            GenerateSequence();
-            return $"{RouletteNumber}.{_sequence}";
+            var byteToHash = Encoding.UTF8.GetBytes(GenerateSequence());
+            var hashedBytes = _hashAlgorithm.ComputeHash(byteToHash);
+
+            // Convert the byte array to hexadecimal string
+            var sb = new StringBuilder();
+            foreach (var t in hashedBytes) sb.Append(t.ToString("X2"));
+            return sb.ToString();
         }
     }
 }

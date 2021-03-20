@@ -1,14 +1,15 @@
 using System;
 
-namespace Md5Roulette.Logic
+namespace Md5Roulette.Logic.NumberGenerators
 {
-    internal class RandomSequenceGenerator : ISequenceGenerator
+    public class RandomNumberGenerator : INumberGenerator
     {
         /// <inheritdoc />
-        public string GetSequence(int minNumber, int maxNumber)
+        /// <inheritdoc />
+        public float GetNumber(int minNumber, int maxNumber)
         {
             var rnd = new Random(DateTime.UtcNow.Ticks.GetHashCode());
-            return $"{NextFloat(rnd,minNumber,maxNumber)}";
+            return NextFloat(rnd,minNumber,maxNumber);
         }
 
         public static float NextFloat(Random random, int minNumber, int maxNumber)

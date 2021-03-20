@@ -23,7 +23,7 @@
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\Md5Roulette.Logic\Md5Roulette.Logic.csproj" />
+      <ProjectReference Include="..\..\src\Md5Roulette.Logic\Md5Roulette.Logic.csproj" />
     </ItemGroup>
 
 </Project>

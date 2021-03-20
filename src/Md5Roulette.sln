@@ -4,7 +4,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Md5Roulette", "Md5Roulette\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Md5Roulette.Logic", "Md5Roulette.Logic\Md5Roulette.Logic.csproj", "{E0EEA2E5-FD49-4E44-924B-E91B1E612EB1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Md5Roulette.Tests", "Md5Roulette.Tests\Md5Roulette.Tests.csproj", "{080FA01D-051E-469A-8553-26943DC4BC02}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Md5Roulette.Tests", "..\tests\Md5Roulette.Tests\Md5Roulette.Tests.csproj", "{B4EB07ED-57A7-4CC2-8E4C-A0B95E9D2060}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -20,9 +20,9 @@ Global
 		{E0EEA2E5-FD49-4E44-924B-E91B1E612EB1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E0EEA2E5-FD49-4E44-924B-E91B1E612EB1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E0EEA2E5-FD49-4E44-924B-E91B1E612EB1}.Release|Any CPU.Build.0 = Release|Any CPU
-		{080FA01D-051E-469A-8553-26943DC4BC02}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{080FA01D-051E-469A-8553-26943DC4BC02}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{080FA01D-051E-469A-8553-26943DC4BC02}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{080FA01D-051E-469A-8553-26943DC4BC02}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B4EB07ED-57A7-4CC2-8E4C-A0B95E9D2060}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B4EB07ED-57A7-4CC2-8E4C-A0B95E9D2060}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B4EB07ED-57A7-4CC2-8E4C-A0B95E9D2060}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B4EB07ED-57A7-4CC2-8E4C-A0B95E9D2060}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
